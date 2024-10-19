@@ -52,7 +52,7 @@ func handleStart(b *tg.Bot, ctx *ext.Context) error {
 				{
 					Text: "Open Web App",
 					WebApp: &tg.WebAppInfo{
-						Url: "https://hackaton-bnb.vercel.app/",
+						Url: "https://hackaton-wheat.vercel.app/",
 					},
 				},
 			},
