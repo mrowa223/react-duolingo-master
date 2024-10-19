@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Head from "next/head";
+// import Head from "next/head";
 import { type AppType } from "next/dist/shared/lib/utils";
 import "~/styles/globals.css";
 
