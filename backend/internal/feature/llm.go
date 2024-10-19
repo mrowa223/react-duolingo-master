@@ -39,7 +39,7 @@ func (f llmFeature) GenerateHelpText(word string) string {
 		return ""
 	}
 
-	result := fmt.Sprintf("%s\n\n%s", word, getStringResponse(resp))
+	result := fmt.Sprintf("%s", getStringResponse(resp))
 
 	return result
 }
@@ -54,7 +54,6 @@ func getStringResponse(resp *genai.GenerateContentResponse) string {
 			}
 		}
 	}
-	result += fmt.Sprintln("---")
 
 	return result
 }
