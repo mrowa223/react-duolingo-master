@@ -48,7 +48,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>React Hackaton </title>
         <meta
           name="description"
@@ -57,7 +57,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#0A0" />
         <link rel="manifest" href="/app.webmanifest" />
-      </Head>
+      </Head> */}
       <Component {...pageProps} />
     </>
   );
