@@ -5,18 +5,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 
-// Modal component
-const Modal: React.FC<{ data: any; onClose: () => void }> = ({
+// Modal component to show hint text
+const HintText: React.FC<{ data: string; onClose: () => void }> = ({
   data,
   onClose,
 }) => {
+  // Разбиваем текст по символу "-" и добавляем отступы
+  const formattedText = data.split("-").map((text, index) => (
+    <div key={index} className="my-4">
+      {" "}
+      {/* my-4 добавляет вертикальные отступы */}
+      {index > 0 && <span>- </span>}
+      {text.trim()}
+    </div>
+  ));
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-50">
       <div className="rounded-lg bg-white p-6 shadow-lg">
         <h2 className="mb-4 text-center text-xl font-bold">HELP TIPS</h2>
-        <p>{data}</p>
+        <div>{formattedText}</div>
         <button
-          className="mt-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+          className="float-right mt-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
           onClick={onClose}
         >
           Close
@@ -68,7 +78,7 @@ const GetHelpButton: React.FC = () => {
       </button>
 
       {/* Show modal when isModalOpen is true */}
-      {isModalOpen && <Modal data={helpData} onClose={handleCloseModal} />}
+      {isModalOpen && <HintText data={helpData} onClose={handleCloseModal} />}
     </>
   );
 };
