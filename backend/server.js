@@ -10,7 +10,7 @@ const port = 5000;
 app.use(express.static(path.join(__dirname, "public")));
 
 // Set up the Telegram bot
-const bot = new TelegramBot("8178843735:AAHqOPQ3Cv2-DVU7FxKOX3CYYhq4Js4f92c", {
+const bot = new TelegramBot("7153875194:AAEqxRUjNQAXRZbfmaxXeddzrs2bXcQDl_0", {
   polling: true,
 });
 
