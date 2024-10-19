@@ -28,7 +28,7 @@ bot.onText(/\/start/, (msg) => {
             {
               text: "Open Web App",
               // URL to open the Web App
-              web_app: { url: "https://decentrathon-hackaton.vercel.app/" },
+              web_app: { url: "https://hackaton-bnb.vercel.app/" },
               // web_app: { url: "http://localhost:5000" }, // Update to localhost:5000 (or your hosted app)
             },
           ],
