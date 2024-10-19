@@ -9,6 +9,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/mrowa223/react-hackaton/backend/internal/delivery"
 	"github.com/mrowa223/react-hackaton/backend/internal/feature"
+	"github.com/rs/cors" // Import the CORS package
 )
 
 func main() {
@@ -31,9 +32,17 @@ func main() {
 
 	go bot.Start()
 
+	// Enable CORS
+	corsHandler := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:3000"}, // Allow frontend origin
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}, // Allow specific methods
+		AllowedHeaders:   []string{"Content-Type", "Authorization"},
+		AllowCredentials: true, // If you need credentials (cookies, etc.)
+	})
+
 	address := "localhost:5001"
 	log.Printf("[HTTP] starting server at %s...", address)
-	err = http.ListenAndServe(address, router)
+	err = http.ListenAndServe(address, corsHandler.Handler(router)) // Wrap the router with the CORS handler
 	if err != nil {
 		log.Fatal(err)
 		return

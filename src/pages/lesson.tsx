@@ -19,6 +19,9 @@ import womanPng from "../../public/woman.png";
 import { useBoundStore } from "~/hooks/useBoundStore";
 import { useRouter } from "next/router";
 
+// GET HELP
+import GetHelpButton from "~/components/GetHelpButton";
+
 const lessonProblem1 = {
   type: "SELECT_1_OF_3",
   question: `Which one of these is "the apple"?`,
@@ -623,6 +626,7 @@ const ProblemWriteInEnglish = ({
                 </button>
               );
             })}
+            <GetHelpButton />
           </div>
         </section>
       </div>
